@@ -3,871 +3,497 @@
     
     <head>
         <meta charset="utf-8">
-        <title>Chad Heuschober</title>
+        <title>Chad Heuschober (He/Him)</title>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
         rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <style>
-            * {
-              box-sizing: border-box;
-            }
-            
-            main {
+            html, body, main, section, header, ul, p, h1, h2, h3 {
+              font-family: 'Open Sans', 'sans-serif';
+              font-size: 14px;
+              line-height: 1.4;
+              margin: 0; padding: 0;
               display: block;
             }
             
-            body {
-              font-size: 15px;
-              color: #333;
-              line-height: 1.42857143;
-              background-color: #F0F0F0;
-              margin: 0;
-              padding: 0;
-              font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Calibri', 'sans-serif';
+            ::selection {
+              color: #fff;
+              background: #e48a8a; /* WebKit/Blink Browsers */
+            }
+            ::-moz-selection {
+              color: #fff;
+              background: #e48a8a; /* Gecko Browsers */
             }
             
-            /* Typical page borders are awkward when rendered to PDF. */
-            body.pdf {
-              background-color: #FFFFFF;
+            p::selection {
+              color: #fff;
             }
             
-            /* Adobe or wkhtmltopdf has issues with the <main> tag, so we use <div> for
-            the PDF case, <main> for the HTML case, and style both via an ID. */
-            #main {
-              background-color: #FFF;
-              margin: 10px;
-              padding: 10px;
-              border: 1px solid #E6E6E6;
-            }
-            
-            body.pdf > #main {
-              border: none;
-            }
-            
-            #container > header {
-              padding-top: 6em;
-              padding-bottom: 1em;
-            }
-            
-            body.pdf #container > header {
-              padding: 0;
-            }
-            
-            #main > #container > section {
-              margin-left: 150px;
-              position: relative;
-              display: block;
-            }
-            
-            section > div {
-              margin-bottom: 60px;
-            }
-            
-            span.fa
-            {
-              font-size: 56px;
-              position: absolute;
-              top: 37px;
-              transform: translateY(-50%);
-              left: -100px;
-              color: #1a4367;
-            }
-            
-            hr {
-              margin-top: 20px;
-              margin-bottom: 20px;
-              border: 0;
-              border-top: 1px solid #EEE;
-            }
-            
-            .tenure, .keywords {
-              font-size: 75%;
-            }
-            
-            h1 {
-              margin: 0;
-              font-size: 46px;
-              display: inline-block;
-            }
-            
-            h2 {
-              font-size: 30px;
-              color: #4376a2;
-              text-transform: uppercase;
-              font-weight: normal;
-              padding-top: 20px;
-              margin-bottom: 60px;
-            }
-            
-            h3 {
-              margin-bottom: 0;
-              font-size: 18px;
-            }
-            
-            a, a:visited {
-              color: #428BCA;
+            a {
+              color: #C00000;
               text-decoration: none;
-              font-weight: bold;
+            }
+            
+            a:visited {
+              color: #7B0796;
             }
             
             a:hover {
               text-decoration: underline;
             }
             
-            .defunct {
-              color: #989898;
-              font-weight: bold;
-            }
-            
-            #summary {
-              font-size: 150%;
-              margin-left: 0;
-              padding: 20px 0;
-            }
-            
-            #summary > p > strong {
-              font-size: 1.25em;
-            }
-            
-            #contact {
-              float: right;
-            }
-            
-            #summary > header > .fa-info {
-              font-size: 70px;
-              letter-spacing: 5px;
+            h1 {
               text-transform: uppercase;
-              font-weight: normal;
-              top: 50%;
-              left: -85px;
-              transform: translateY(-50%);
+              font-size:
             }
             
-            #summary h2 {
+            h2 {
+              text-transform: uppercase;
+              color: #898989;
+              font-size: 2em;
+              position: relative;
+              font-weight: 400;
+            }
+            
+            h3, .tenure {
+              font-size: 1.5em;
+              font-weight: 400;
+            }
+            
+            h3 {
+              margin-top: 0;
+              margin-bottom: 5px;
+              /*width: 85%;*/
+              float: left;
+            }
+            
+            table {
+              width: 100%;
+              text-transform: uppercase;
+            }
+            
+            td:first-child {
+              letter-spacing: 2px;
+              color: #bd5b5b;
+              font-size: 20px;
+            }
+            
+            td:last-child {
+              text-align: justify; /* HTML justification sucks, but in this case... */
+            }
+            
+            hr {
               display: none;
             }
             
-            
-            .label-keyword {
-              display: inline-block;
-              background: #e8f4ff;
-              color: black;
-              font-size: 0.9em;
-              padding: 5px;
-              border: 1px solid #357ebd;
-              border-radius: 5px;
-              margin-top: 2px;
-              font-weight: bold;
-              text-align: center;
-            }
-            
-            .notes {
-              font-size: 10px;
-              display: block;
-              font-weight: normal;
-              text-transform: uppercase;
-            }
-            
-            .card-skills {
-                position: relative;
-            }
-            .card-nested {
-                min-height: 0;
-                margin-bottom: 10px;
-                border-width: 1px 0 0 0;
-            }
-            .card {
-                background: #FFF;
-                border-radius: 3px;
-                padding: 10px;
-            }
-            
-            .skill-level {
-              border-radius: 3px;
-              position: absolute;
-              top: 10px;
-              bottom: 10px;
-              left: 0;
-              width: 10px;
-              box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
-            }
-            .skill-level .skill-progress {
-              position: absolute;
-              border-radius: 3px;
-              bottom: 0;
-              width: 100%;
-              -webkit-transition: height 1s ease;
-            }
-            .skill-level .skill-progress.beginner {
-              height: 50%;
-              background: #e74c3c;
-            }
-            .skill-level .skill-progress.intermediate {
-              height: 70%;
-              background: #f1c40f;
-            }
-            .skill-level .skill-progress.advanced {
-              height: 80%;
-              background: #428bca;
-            }
-            .skill-level .skill-progress.master {
-              height: 95%;
-              background: #5cb85c;
-            }
-            .skill-info {
-              margin-left: 10px;
-            }
-            @media (max-width: 480px) {
-              .skill-info {
-                margin-left: 20px;
-              }
-            }
-            .skill-info > strong {
-              font-weight: 400;
-              font-size: 24px;
-              color: #1d1d1d;
-              line-height: 24px;
-            }
-            
-            .list-unstyled {
-              padding-left: 0;
-              list-style: none;
-            }
-            
-            .card-skills {
-              position: relative;
-            }
-            
-            .space-top {
-                margin-top: 5px;
-            }
-            
-            #container {
+            main {
+              padding: 15px;
               max-width: 800px;
               margin: 0 auto;
             }
             
-            #elevator-pitch {
-              text-align: center;
-              font-size: 24px;
-              color: #BFC1C3;
-              text-transform: uppercase;
-              font-weight: normal;
+            section {
+              margin-top: 2em;
             }
             
-            .res-label {
-              font-style: italic;
+            section > div {
+              margin-top: 2em;
+              overflow: hidden; /* Clear floated children */
+            }
+            
+            section > div p {
+              clear: both;
+            }
+            
+            section > header {
+              position: relative;
+            }
+            
+            p + ul {
+              margin: 1em;
+            }
+            
+            ul {
+              clear: both;
+            }
+            
+            li {
+              margin-left: 2em;
+            }
+            
+            p, li {
+              text-align: justify;
+            }
+            
+            .tenure {
+              float: right;
+              color: #6F6F6F;
+              background-color: #F5F5F5;
+              border-radius: 6px;
+              padding: 4px 6px;
+              font-size: 85%;
+              font-weight: 600;
+              margin-top: 3px;
+            }
+            
+            .location {
+              border: #e2aaaa dashed 1px;
+              background-color: #ffffff;
+              padding: 3px 6px;
+              border-radius: 6px;
+              float: right;
+              margin-right: 5px;
+              float: right;
+              font-size: 85%;
+              color: #717171;
+              font-weight: 600;
+              margin-top: 3px;
+            }
+            
+            span.keywords {
+              font-size: 12px;
+              color: #B16666;
+            }
+            
+            thead {
+              display: none;
+            }
+            
+            main > header {
+              width: 100%;
+              float: left;
+              margin-bottom: 1em;
+            }
+            
+            h1 {
+              float: left;
+            }
+            
+            h1, h2, .label {
+              font-size: 2.5em;
+              text-transform: uppercase;
+              font-weight: 300;
+              font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Lato', 'sans-serif'
+            }
+            
+            #contact {
+             clear: both;
+             float: right;
+             margin-top: 2px;
+            }
+            
+            #contact span + span {
+              margin-left: 10px;
+            }
+            
+            header > span.fa {
+              text-align: center;
+              margin-right: 3px;
+              position: absolute;
+              width: 40px;
+              top: 14px;
+              font-size: 30px;
+              /*transform: translateX(-110%); PDF no likey */
+              margin-left: -50px;
+              color: #DADADA;
+            }
+            
+            .label {
+              float: right;
+              color: #DADADA;
+            }
+            
+            #summary {
+              color: #717171;
+              font-size: 1.25em;
+              margin-top: 6em;
+            }
+            
+            #skills td {
+              padding-top: 7px;
+              padding-bottom: 7px;
+            }
+            
+            #references > p, #references > p > a {
+              color: #961e1e;
+              text-align: center;
+              margin: 30px;
+              font-weight: bold;
+              letter-spacing: 2px;
+              text-transform: uppercase;
             }
         </style>
     </head>
     
     <body>
-        <main id="main">
-            <div id="container">
-                <header>
-                     <h1>Chad Heuschober</h1>
-                    <div id="contact">
-                        <div class="email"><a href="mailto:cheuschober@gmail.com">cheuschober@gmail.com</a>
-                        </div>
-                        <div class="phone">1-917-334-6582</div>
-                        <div class="website"><a href="https://cheuschober.github.io">https://cheuschober.github.io</a>
-                        </div>
-                    </div>
+        <main>
+            <header>
+                 <h1>Chad Heuschober <span style="color: #C00000;">(He/Him)</span></h1> <span class="label"></span>
+                <p id="contact"> <span class="email"><a href="mailto:cheuschober@gmail.com">cheuschober@gmail.com</a></span>
+                    <span
+                    class="phone">1-917-334-6582</span> <span class="website"><a href="https://cheuschober.github.io"><a href="https://cheuschober.github.io">https://cheuschober.github.io</a></a></span>
+                </p>
+            </header>
+            <section id="summary">A leader with proficiency in both product and reliability engineering,
+                a history of collaboration, influence, and positive disruption, and a love
+                for nurturing and guiding diverse teams of collaborators.</section>
+            <hr>
+            <section id="skills">
+                <header> <span class="fa fa-lg fa-code"></span> 
+                     <h2>skills</h2>
+
                 </header>
-                <hr>
-                <section id="summary">
-                    <header> <span class="fa fa-lg fa-info"></span> 
-                         <h2>info</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Keywords</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 25%;">People Leadership</td>
+                            <td class="keywords">coaching team building diversity and inclusion growth orientation communications
+                                performance calibration</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">Organizational Strategy</td>
+                            <td class="keywords">roadmap creation / maintenance organizational design business case development
+                                cross-functional collaboration driving consensus</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">Reliability Engineering</td>
+                            <td class="keywords">risk management declarative automation stateful systems management kubernetes
+                                synthetics test engineering sla / slo development</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">Software Design / Development</td>
+                            <td class="keywords">distributed systems architecture continuous integration / continuous delivery
+                                eventing internet / edge load balancing code clarity</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 25%;">Process / Product Management</td>
+                            <td class="keywords">scrum kanban project decomposition dependency management competitor /
+                                market analysis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <hr>
+            <section id="employment">
+                <header> <span class="fa fa-lg fa-building"></span> 
+                     <h2>employment</h2>
 
-                    </header>A passionate Engineering Leader with an established record of guiding
-                    teams of SREs, Operators, Software Engineers, and Database Professionals
-                    to new peaks in quality, performance, efficiency, and personal satisfaction.
-                    Draws upon an extensive background as an innovative and multi-disciplinary
-                    DevOps Engineer, providing strong technical direction with a focus on mentorship,
-                    process optimization, and strategic target identification to maximize team
-                    results and eliminate unnecessary toil.</section>
-                <hr>
-                <section id="skills">
-                    <header>
-                         <h2>Skills</h2>
-                    </header> <span class="fa fa-lg fa-code"></span>
-                    <ul class="list-unstyled">
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="master" data-placement="left">
-                                <div class="skill-progress master"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Automation / CICD</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">ansible</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">concourseci</span> <span class="notes">1 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">drone.io</span> <span class="notes">1 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">git</span> <span class="notes">10 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">jenkins</span> <span class="notes">7 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">saltstack</span> <span class="notes">6 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">terraform</span> <span class="notes">1 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">teamcity</span> <span class="notes">3 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="master" data-placement="left">
-                                <div class="skill-progress master"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Data Storage / Transport</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">etcd</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">consul</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">kafka</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">mariadb</span> <span class="notes">8 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">mysql</span> <span class="notes">10 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">postgresql</span> <span class="notes">5 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">rabbitmq</span> <span class="notes">5 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">sql server</span> <span class="notes">10 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">vault</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">zookeeper</span> <span class="notes">3 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="master" data-placement="left">
-                                <div class="skill-progress master"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Languages / Frameworks</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">bash</span> <span class="notes">17 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">django</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">flask</span> <span class="notes">7 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">go</span> <span class="notes">1 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">javascript</span> <span class="notes">1 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">php</span> <span class="notes">6 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">python</span> <span class="notes">9 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">yii</span> <span class="notes">4 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="master" data-placement="left">
-                                <div class="skill-progress master"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Leadership / Project Management</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">culture building</span> <span class="notes">13 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">devops</span> <span class="notes">7 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">kanban</span> <span class="notes">8 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">mentorship</span> <span class="notes">11 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">operational efficiency</span> <span class="notes">11 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">people management</span> <span class="notes">9 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">presentation</span> <span class="notes">13 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">process optimization</span> <span class="notes">13 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">risk management</span> <span class="notes">9 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">scrum</span> <span class="notes">8 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">sre</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">team building</span> <span class="notes">11 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="advanced" data-placement="left">
-                                <div class="skill-progress advanced"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Containerization / Cloud Native</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">calico</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">docker</span> <span class="notes">4 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">kubernetes</span> <span class="notes">2 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">helm</span> <span class="notes">2 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">lxc</span> <span class="notes">5 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">marathon</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">mesos</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">openvz</span> <span class="notes">5 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="card card-nested card-skills">
-                            <div class="skill-level" rel="tooltip" title="advanced" data-placement="left">
-                                <div class="skill-progress advanced"></div>
-                            </div>
-                            <div class="skill-info"> <strong>Virtualization / Operations</strong>
-                                <div class="space-top labels">
-                                    <div class="label label-keyword"> <span class="kw">elasticsearch</span> <span class="notes">4 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">grafana</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">fluentd</span> <span class="notes">2 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">kvm</span> <span class="notes">8 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">linux</span> <span class="notes">17 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">openstack</span> <span class="notes">3 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">prometheus</span> <span class="notes">2 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">proxmox</span> <span class="notes">8 years</span>
-                                    </div>
-                                    <div class="label label-keyword"> <span class="kw">zabbix</span> <span class="notes">7 years</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-                <hr>
-                <section id="employment">
-                    <header> <span class="fa fa-lg fa-building"></span> 
-                         <h2>employment</h2>
+                </header>
+                <div>
+                     <h3><em>Senior Manager, Storage Engineering</em>,
 
-                    </header>
-                    <div>
-                         <h3><em>Manager, Platform Engineering</em>,
+              <a href="https://www.digitalocean.com">DigitalOcean</a>
 
-    <a href="https://dellemc.com">Dell EMC</a>
+              </h3> <span class="tenure">2020-12 — Present</span>
+                    <p>
+                        <p>Responsible for the reliability, growth, and organizational strategy all
+                            cloud storage products and engineering teams.</p>
+                    </p>
+                    <ul>
+                        <li>Designed and implemented the multi-year cloud storage product growth strategy
+                            inclusive of intra- and extra-departmental cost modeling, business case
+                            development, and implementation planning.</li>
+                        <li>Oversaw a +140% increase in the Storage Engineering team and its successful
+                            reorganization into two product (software/devops) and two functional (reliability)
+                            engineering teams.</li>
+                        <li>Doubled Spaces (S3) and Volumes (Block) and performance and climbed to
+                            the second highest product growth rate at DigitalOcean.</li>
+                        <li>Directed investments in consistency enforcement (Temporal), internal schedulers,
+                            rebalancers, and other scale enhancements that achieved a further 80% reduction
+                            in incidents per active accounts and a greater than 75% reduction in MTTR.</li>
+                        <li>Pioneered the use of Kubernetes-on-metal (storage nodes) at DigitalOcean
+                            as a means to reduce deployment and operations-related toil, enforce global
+                            deployment consistency, and improve developer velocity.</li>
+                        <li>Increased collaboration and influence with cross-functional partners resulting
+                            in multiple cross-functional development projects, the production of self-service
+                            APIs, and the successful transition of functions to more specialized operators.</li>
+                    </ul> <span class="keywords">organizational development product management team building distributed systems reliability engineering software engineering project management </span>
+                </div>
+                <div>
+                     <h3><em>Manager, Object Storage Engineering</em>,
 
-    </h3> <span class="tenure">2017-04 — Present</span>| <span class="keywords">culture building helm kubernetes mentorship people management process optimization team building </span>
-                        <p>
-                            <p>Responsible for the development and delivery of container and hypervisor
-                                compute platforms supporting the Virtustream Storage Cloud and Next-Generation
-                                Virtustream Enterprise Cloud (IaaS) as well as all major supporting datacenter
-                                services.</p>
-                        </p>
-                        <ul>
-                            <li>Retained prior responsibilities for the Virtustream Storage Cloud container
-                                platform while adding operations support for a public Openstack IaaS product
-                                and the operations and maintenance of all core services in Openstack datacenters
-                                such as log collection, monitoring, dns, auth, smtp, ntp, and others.</li>
-                            <li>Recognized as a change agent in the field of operational efficiency and
-                                stable service delivery demonstrating a peak team operating efficiency
-                                of 3400 services per head with a 15% toil rate.</li>
-                            <li>Drove the design, development, and implementation of the next-generation
-                                IaaS platform with significant benefits to operational overhead, durability,
-                                availability, scalability, and service delivery.</li>
-                            <li>Entrusted with the operation of core services in the Next-Generation IaaS
-                                platform with a fully containerized stack including such major functions
-                                as auth, identity, mail, alerting, monitoring, logging, ntp, dns, certificates-as-a-service,
-                                key-value stores, message buses, secret stores, and others.</li>
-                            <li>Orchestrated the development and adoption of the next-generation container
-                                platform based on Kubernetes and Helm within the next-generation IaaS platform
-                                and the next-generation storage cloud.</li>
-                            <li>Developed automated tooling for security compliance and audit evidence
-                                collection, reducing compliance-related toil by 85%.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Senior Principal Software Engineer</em>,
+              <a href="https://www.digitalocean.com">DigitalOcean</a>
 
-    <a href="https://dellemc.com">Dell EMC</a>
+              </h3> <span class="tenure">2019-06 — 2020-12</span>
+                    <p>
+                        <p>Responsible for the development, operations and long-term strategy of
+                            the Spaces (S3 object storage), Backups, and Snapshots cloud storage products.</p>
+                    </p>
+                    <ul>
+                        <li>Drove a transition to managing storage clusters via automation (Ansible)
+                            to enforce consistency and increase engineer productivity.</li>
+                        <li>Implemented new processes and organizational tools that increased focus
+                            and improved productivity for both on-call and off-call engineers by roughly
+                            60%.</li>
+                        <li>Directed reliability improvements that effected a 50% reduction in incidents
+                            per active accounts and the elimination of what had once been a permanent
+                            status-page condition.</li>
+                        <li>Orchestrated the transition of DigitalOcean&#39;s storage products to
+                            NVMe flash resulting in significant price-performance capability enhancements
+                            as well as filling a major gap in Spaces (S3 Object) IOPS performance.</li>
+                        <li>Achieved the first storage software (Ceph) upgrade at DigitalOcean since
+                            product inception while also transitioning storage products to containerization
+                            in anticipation of a multi-year strategy to use Kubernetes for stateful,
+                            declarative, event-driven service management.</li>
+                    </ul> <span class="keywords">product management team building distributed systems reliability engineering software engineering project management </span>
+                </div>
+                <div>
+                     <h3><em>Manager, Platform Engineering</em>,
 
-    </h3> <span class="tenure">2016-10 — 2017-04</span>| <span class="keywords">culture building mesos mentorship openstack python operational efficiency process optimization salt </span>
-                        <p>
-                            <p>Responsible for leading the continued advancement and operations of the
-                                container platform supporting the Virtustream Storage Cloud.</p>
-                        </p>
-                        <ul>
-                            <li>Continued leadership of the Site Reliability Engineering (SRE) team responsible
-                                for the operations of the container platform supporting the Virtustream
-                                Storage Cloud.</li>
-                            <li>Evangelized the use of automation through presentations and training within
-                                the broader organization and beyond.</li>
-                            <li>Developed automation and state systems for performing zero-dropped-connection
-                                rolling updates of the container platform.</li>
-                            <li>Drove constant improvements in monitoring, testing, reliability, durability,
-                                adoption, and usability of the container platform and services running
-                                atop it.</li>
-                            <li>Maintained team morale, focus, productivity, and platform SLAs through
-                                a 50% workforce reduction instituted under new leadership.</li>
-                            <li>Set the strategy for the next generation (Kubernetes) container platform
-                                and rallied team members under the new initiative.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Principal Software Engineer</em>,
+              <a href="https://dellemc.com">Dell EMC</a>
 
-    <a href="https://dellemc.com">Dell EMC</a>
+              </h3> <span class="tenure">2017-04 — 2019-06</span>
+                    <p>
+                        <p>Responsible for the development and delivery of container and hypervisor
+                            compute platforms supporting the Virtustream Storage Cloud and Next-Generation
+                            Virtustream Enterprise Cloud (IaaS) as well as all major supporting datacenter
+                            services.</p>
+                    </p>
+                    <ul>
+                        <li>Operated the Mesos-based Virtustream Storage Cloud container platform
+                            in addition to a new Openstack IaaS product and core services such as log
+                            collection, monitoring, dns, auth, smtp, ntp, certification management,
+                            message buses, key-value and secrets stores.</li>
+                        <li>Reduced engineer toil from 45% to 15% through tooling and process management.</li>
+                        <li>Orchestrated the development and adoption of the next-generation container
+                            platform based on Kubernetes and Helm within the next-generation IaaS platform
+                            and the next-generation storage cloud.</li>
+                        <li>Developed automated tooling for security compliance and audit evidence
+                            collection, reducing compliance-related toil by 85%.</li>
+                    </ul> <span class="keywords">team building distributed systems kubernetes consul openstack docker reliability engineering project management </span>
+                </div>
+                <div>
+                     <h3><em>Senior Principal Software Engineer</em>,
 
-    </h3> <span class="tenure">2015-05 — 2016-10</span>| <span class="keywords">calico consul docker linux lxc marathon mentorship mesos python salt </span>
-                        <p>
-                            <p>Responsible for the availability, latency, performance, efficiency, change
-                                management, monitoring, emergency response and capacity planning of infrastructure
-                                services and platforms.</p>
-                        </p>
-                        <ul>
-                            <li>Lead a team of Site Reliability Engineers (SRE) responsible for the development
-                                and operations of a customized implementation of Apache Mesos for a multi-exabyte,
-                                distributed public storage cloud.</li>
-                            <li>Architect and core contributor of a stateful automation suite capable
-                                of bootstrapping and maintaining a PCI-compliant container platform on
-                                physical infrastructure in all global datacenters with no human interaction
-                                and a ten-minute execution window.</li>
-                            <li>Orchestrated the container platform build architecture, operations model,
-                                and user adoption strategy that resulted in a 300% increase in year over
-                                year platform adoption.</li>
-                            <li>Developed a new paradigm for reusable, testable automation with Salt and
-                                LXC that reduced test execution times by 90%.</li>
-                            <li>Composed stateful automation modules in Python and provided a Python /
-                                development mentorship function for SREs.</li>
-                            <li>Implemented monitoring and service health check tooling to guarantee SLO
-                                target achievement.</li>
-                            <li>Participated in on-call incident management and toil-elimination activities.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Adjunct Lecturer</em>,
+              <a href="https://dellemc.com">Dell EMC</a>
 
-    <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
+              </h3> <span class="tenure">2016-10 — 2017-04</span>
+                    <p>
+                        <p>Responsible for leading the continued advancement and operations of the
+                            container platform supporting the Virtustream Storage Cloud.</p>
+                    </p>
+                    <ul>
+                        <li>Developed automation and state systems for performing zero-dropped-connection
+                            rolling updates of the container platform.</li>
+                        <li>Drove constant improvements in monitoring, testing, reliability, durability,
+                            adoption, and usability of the container platform and services running
+                            atop it.</li>
+                        <li>Set the strategy for the next generation (Kubernetes) container platform
+                            and rallied team members under the new initiative.</li>
+                    </ul> <span class="keywords">consul docker linux mesos openstack python prometheus grafana elasticsearch salt </span>
+                </div>
+                <div>
+                     <h3><em>Principal Software Engineer</em>,
 
-    </h3> <span class="tenure">2014-08 — 2016-06</span>| <span class="keywords">jenkins mentorship linux python testing </span>
-                        <p>
-                            <p>Responsible for the development and instruction of the Software Application
-                                Programming curriculum for the newly established Bachelor Degree in Information
-                                Systems.</p>
-                        </p>
-                        <ul>
-                            <li>Created a modern application development curriculum using entirely Free
-                                and Open Source Software (FOSS).</li>
-                            <li>Developed a continuous integration toolchain to provide automated assignment
-                                scoring via unit tests, integration tests, and linters in Docker sandboxes
-                                with near-instantaneous feedback given to students.</li>
-                            <li>Fostered a culture of readability, performance, and precision that prepared
-                                students for real world, multi-engineer environments where 99.9% is the
-                                lowest bar for success and is exceeded though iteration and adherence to
-                                idiomatic design.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Software Development Manager</em>,
+              <a href="https://dellemc.com">Dell EMC</a>
 
-    <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
+              </h3> <span class="tenure">2015-05 — 2016-10</span>
+                    <p>
+                        <p>Responsible for the availability, latency, performance, efficiency, change
+                            management, monitoring, emergency response and capacity planning of infrastructure
+                            services and platforms.</p>
+                    </p>
+                    <ul>
+                        <li>Lead a team of Site Reliability Engineers (SRE) responsible for the development
+                            and operations of a customized implementation of Apache Mesos for a multi-exabyte,
+                            distributed public storage cloud.</li>
+                        <li>Architected a stateful automation suite capable of bootstrapping and maintaining
+                            a PCI-compliant container platform on physical infrastructure in all global
+                            datacenters with no human interaction and a ten-minute execution window.</li>
+                        <li>Orchestrated the container platform build architecture, operations model,
+                            and user adoption strategy that resulted in a 300% increase in year over
+                            year platform adoption.</li>
+                        <li>Developed a new paradigm for reusable, testable automation with Salt and
+                            LXC that reduced test execution times by 90%.</li>
+                        <li>Implemented monitoring and service health check tooling to guarantee SLO
+                            target achievement.</li>
+                    </ul> <span class="keywords">consul docker linux mesos python prometheus grafana elasticsearch salt </span>
+                </div>
+                <div>
+                     <h3><em>Adjunct Lecturer</em>,
 
-    </h3> <span class="tenure">2009-11 — 2015-05</span>| <span class="keywords">django jenkins mysql php python rabbitmq salt symfony yii </span>
-                        <p>
-                            <p>Responsible for application services administration and the development
-                                of internal software solutions.</p>
-                        </p>
-                        <ul>
-                            <li>Oversaw a net 600% increase of the staff to supported service ratio of
-                                the Office of Information Technology, largely due to automation and standardization
-                                efforts.</li>
-                            <li>Created and administered a DevOps Mentorship program to modernize and
-                                expand the skills of IT Staff.</li>
-                            <li>Implemented The School&#39;s first CI/CD pipeline using Jenkins, Git,
-                                and Salt and expanded its use to all projects within a year of initial
-                                implementation.</li>
-                            <li>Spearheaded the use of stateful automation tooling throughout all service
-                                lines and pioneered the use of immutable (containerized) infrastructure.</li>
-                            <li>Partnered with the NYC Office of Emergency Management and the Open Source
-                                Community to transform business needs into Sahana Agasti, an Open-Source
-                                Emergency Management solution that utilized geographic data to deploy staff
-                                and track shelter operations during Hurricanes Irene and Sandy.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Database Manager</em>,
+              <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
 
-    <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
+              </h3> <span class="tenure">2014-08 — 2016-06</span>
+                    <p>
+                        <p>Responsible for the development and instruction of the Software Application
+                            Programming curriculum for the newly established Bachelor Degree in Information
+                            Systems.</p>
+                    </p>
+                    <ul>
+                        <li>Created a modern application development curriculum using entirely Free
+                            and Open Source Software (FOSS).</li>
+                        <li>Developed a continuous integration toolchain to provide automated assignment
+                            scoring via unit tests, integration tests, and linters in Docker sandboxes
+                            with near-instantaneous feedback given to students.</li>
+                        <li>Fostered a culture of readability, performance, and precision that prepared
+                            students for real world, multi-engineer environments.</li>
+                    </ul> <span class="keywords">education jenkins linux python </span>
+                </div>
+                <div>
+                     <h3><em>Software Development Manager</em>,
 
-    </h3> <span class="tenure">2007-12 — 2009-11</span>| <span class="keywords">architecture sql server mentorship mysql process optimization python </span>
-                        <p>
-                            <p>Responsible for the design, development, and administration of all data
-                                systems.</p>
-                        </p>
-                        <ul>
-                            <li>Lead the efforts of full-stack engineers building dynamic web applications.</li>
-                            <li>Oversaw the construction of The School&#39;s first independent datacenter.</li>
-                            <li>Developed the NYC Coastal Storm Plan Training System in partnership with
-                                the NYC Office of Emergency Management.</li>
-                            <li>Designed and implemented a plan to migrate a portion of The School&#39;s
-                                website to a CMS, reducing administrator toil by 95%.</li>
-                        </ul>
-                    </div>
-                    <div>
-                         <h3><em>Database Specialist</em>,
+              <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
 
-    <a href="http://www.rfcuny.org">CUNY Research Foundation</a>
+              </h3> <span class="tenure">2009-11 — 2015-05</span>
+                    <p>
+                        <p>Responsible for application services administration and the development
+                            of internal software solutions.</p>
+                    </p>
+                    <ul>
+                        <li>Utilized automation to achieve a net 600% increase of the staff to supported
+                            service ratio.</li>
+                        <li>Created and administered a DevOps Mentorship program to modernize and
+                            expand the skills of IT Staff.</li>
+                        <li>Implemented The School&#39;s first CI/CD pipeline using Jenkins, Git,
+                            and Salt and expanded its use to all projects within a year of initial
+                            implementation.</li>
+                        <li>Spearheaded the use of stateful automation tooling throughout all service
+                            lines and pioneered the use of immutable (containerized) infrastructure.</li>
+                        <li>Partnered with the NYC Office of Emergency Management and the Open Source
+                            Community to transform business needs into Sahana Agasti, an Open-Source
+                            Emergency Management solution that utilized geographic data to deploy staff
+                            and track shelter operations during Hurricanes Irene and Sandy.</li>
+                    </ul> <span class="keywords">django jenkins mysql php python rabbitmq salt symfony yii </span>
+                </div>
+                <div>
+                     <h3><em>Database Manager</em>,
 
-    </h3> <span class="tenure">2005-08 — 2007-12</span>| <span class="keywords">architecture reporting sql server sql statistics visual basic </span>
-                        <p>
-                            <p>Supervisded data warehousing, reporting, and cleanup activities for grant-funded
-                                research initiatives.</p>
-                        </p>
-                    </div>
-                    <div>
-                         <h3><em>Database Assistant</em>,
+              <a href="https://sps.cuny.edu">CUNY School of Professional Studies</a>
 
-    <a href="http://www.rfcuny.org">CUNY Research Foundation</a>
+              </h3> <span class="tenure">2007-12 — 2009-11</span>
+                    <p>
+                        <p>Responsible for the design, development, and administration of all data
+                            systems.</p>
+                    </p>
+                    <ul>
+                        <li>Lead the efforts of full-stack engineers building dynamic web applications.</li>
+                        <li>Oversaw the construction of The School&#39;s first independent datacenter.</li>
+                        <li>Developed the NYC Coastal Storm Plan Training System in partnership with
+                            the NYC Office of Emergency Management.</li>
+                        <li>Designed and implemented a plan to migrate a portion of The School&#39;s
+                            website to a CMS, reducing administrator toil by 95%.</li>
+                    </ul> <span class="keywords">sql server mysql python </span>
+                </div>
+            </section>
+            <hr>
+            <section id="education">
+                <header> <span class="fa fa-lg fa-mortar-board"></span> 
+                     <h2>education</h2>
 
-    </h3> <span class="tenure">2004-12 — 2005-08</span>| <span class="keywords">architecture reporting sql server sql statistics visual basic </span>
-                        <p>
-                            <p>Managed data reporting activities for the CUNY Office of Academic Affairs.</p>
-                        </p>
-                    </div>
-                    <div>
-                         <h3><em>Technology Fellow</em>,
-
-    <a href="https://www.millikin.edu">Millikin University</a>
-
-    </h3> <span class="tenure">2000-09 — 2003-05</span>| <span class="keywords">css html mysql php </span>
-                        <p>
-                            <p>Developed original site&#39;s content, images, styles and infrastructure
-                                for the Theatre and Dance Department website.</p>
-                        </p>
-                    </div>
-                </section>
-                <hr>
-                <section id="education">
-                    <header> <span class="fa fa-lg fa-mortar-board"></span> 
-                         <h2>education</h2>
-
-                    </header>
-                    <div>
-                        
-<h3><em>SaltStack Certified Engineer</em>,
-
-SaltStack
-
-</h3>
-<span class="tenure">2014-01 — Present</span>
-                        <p>SSC ID: 0xEABBB4B4</p>
-                    </div>
-                    <div>
-                        
-<h3><em>Bachelor of Fine Arts</em>,
-
-<a href="https://www.millikin.edu">Millikin University</a>
-
-</h3>
-<span class="tenure">1999-09 — 2003-05</span>
-                        <p>Graduated from Millikin University (Decatur, IL) in 2003 with a Bachelor
-                            of Fine Arts in Musical Theatre.</p>
-                    </div>
-                </section>
-                <hr>
-                <section id="governance">
-                    <header> <span class="fa fa-lg fa-balance-scale"></span> 
-                         <h2>governance</h2>
-
-                    </header>
-                    <div>
-                        
-<h3><em>Project Management Committee Chair</em>,
-
-<a href="https://sahanafoundation.org">Sahana Software Foundation</a>
-
-</h3>
-<span class="tenure">2011-04 — 2012-06</span>
-                        <p>Lead the Agasti project on the Sahana Project Management Committee, a
-                            project focused on disaster preparedness and shelter operations used in
-                            New York City during Hurricanes Irene and Sandy.</p>
-                    </div>
-                </section>
-                <hr>
-                <section id="extracurricular">
-                    <header> <span class="fa fa-lg fa-child"></span> 
-                         <h2>extracurricular</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>Fat Cat Fab Lab</em>,
-
-        Makerspace
-
-        </h3> <span class="location">New York, NY</span> <span class="tenure">2017-04 — Present</span>
-                        <p></p>
-                    </div>
-                    <div>
-                         <h3><em>Uptown NYC Board Gamers</em>,
-
-        Board Game Meetup
-
-        </h3> <span class="location">New York, NY</span> <span class="tenure">2017-01 — Present</span>
-                        <p></p>
-                    </div>
-                    <div>
-                         <h3><em>Bridle Path Track Club</em>,
-
-        Long-Distance Running, Marathons, and Ultramarathons
-
-        </h3> <span class="location">New York, NY</span> <span class="tenure">2008-11 — 2017-11</span>
-                        <p></p>
-                    </div>
-                </section>
-                <hr>
-                <section id="reading">
-                    <header> <span class="fa fa-lg fa-book"></span> 
-                         <h2>reading</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>Clean Code: A Handbook of Agile Software Craftsmanship</em>, Robert C. Martin</h3>
- <span class="tenure">2008</span>
-
-                        <p>One of the better abstract approaches to software design and one of the
-                            first tools I regularly offer to developers in need of guidance.</p>
-                    </div>
-                    <div>
-                         <h3><em>First, Break All The Rules: What the World&#39;s Greatest Managers Do Differently</em>, Marcus Buckingham</h3>
- <span class="tenure">2016</span>
-
-                        <p>A thought-provoking set of case studies on the role of a manager and managerial
-                            action.</p>
-                    </div>
-                    <div>
-                         <h3><em>Turn the Ship Around!: A True Story of Turning Followers into Leaders</em>, L. David Marquet</h3>
- <span class="tenure">2013</span>
-
-                        <p>An exploration of the manager&#39;s role in fostering self-governance
-                            and building a culture of functional leaders.</p>
-                    </div>
-                    <div>
-                         <h3><em>Site Reliability Engineering: How Google Runs Production Systems</em>, Betsy Beyer, Chris Jones, Jennifer Petoff</h3>
- <span class="tenure">2016</span>
-
-                        <p>The go-to resource for implementing an SRE approach to stable, agile service
-                            delivery.</p>
-                    </div>
-                    <div>
-                         <h3><em>The Site Reliability Workbook: Practical Ways to Implement SRE</em>, Betsy Beyer</h3>
- <span class="tenure">2018</span>
-
-                        <p>An excellent supplement to the original SRE book that provides necessary
-                            practical examples for implementing the SRE approach to service delivery.</p>
-                    </div>
-                </section>
-                <hr>
-                <section id="recognition">
-                    <header> <span class="fa fa-lg fa-trophy"></span> 
-                         <h2>recognition</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>Excellence in Technology Service</em>, City University of New York (CUNY)</h3>
- <span class="tenure">2015</span>
-
-                        <p>Awarded for Excellence in Technology Service related to classroom innovations
-                            in software development and instruction.</p>
-                    </div>
-                    <div>
-                         <h3><em>Michael Ribaudo Award for Computing Achievement</em>, City University of New York (CUNY)</h3>
- <span class="tenure">2011</span>
-
-                        <p>Awarded for contributions to the New York City response to Hurricaine
-                            Irene via the Sahana Disaster Management Software Project.</p>
-                    </div>
-                </section>
-                <hr>
-                <section id="speaking">
-                    <header> <span class="fa fa-lg fa-users"></span> 
-                         <h2>speaking</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>How the Challenge of Deploying Mesos Revolutionized the Way We Use SaltStack</em>, SaltConf 16</h3>
- <span class="tenure">2016</span>
-
-                    </div>
-                    <div>
-                         <h3><em>Sahana Agasti: Mayon for HyperScale Emergency Management</em>, SahanaCamp@ISCRAM</h3>
- <span class="tenure">2011</span>
-
-                    </div>
-                </section>
-                <hr>
-                <section id="references">
-                    <header> <span class="fa fa-lg fa-thumbs-o-up"></span> 
-                         <h2>references</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>Steven Gonzales</em>, Director, Infrastructure Software Engineering @ DellEMC</h3>
-
-                        <p>Contact information available on request.</p>
-                    </div>
-                    <div>
-                         <h3><em>Josh Conant</em>, Consultant Software Engineer @ DellEMC</h3>
-
-                        <p>Contact information available on request.</p>
-                    </div>
-                </section>
-                <hr>
-                <section id="interests">
-                    <header> <span class="fa fa-lg fa-bicycle"></span> 
-                         <h2>interests</h2>
-
-                    </header>
-                    <div>
-                         <h3><em>3D Modeling and Digital Fabrication</em></h3>
- <span class="tenure">Current</span>
-
-                        <p>Practices 3d modeling and digital fabrication with experience in 3D printing,
-                            laser cutting, and CNC.</p>
-                    </div>
-                    <div>
-                         <h3><em>Propmaking</em></h3>
- <span class="tenure">Current</span>
-
-                        <p>Combines digital fabrication techniques with traditional techniques such
-                            as casting, molding, and wearable electronics in the creation of prop replicas.</p>
-                    </div>
-                    <div>
-                         <h3><em>Leatherworking</em></h3>
- <span class="tenure">Current</span>
-
-                        <p>Works leather in the construction and detailing of garments and cases.</p>
-                    </div>
-                    <div>
-                         <h3><em>Hobbyist Board Games</em></h3>
- <span class="tenure">Current</span>
-
-                        <p>Enjoys games focused on strategy, team building, and resource constraint
-                            simulation.</p>
-                    </div>
-                </section>
-            </div>
+                </header>
+                <div>
+                     <h3><em>Bachelor of Fine Arts</em>, Millikin University</h3> <span class="tenure">1999-09 — 2003-05</span> <span class="location">Decatur, IL</span>
+                    <p>Graduated from Millikin University (Decatur, IL) in 2003 with a Bachelor
+                        of Fine Arts in Musical Theatre.</p>
+                </div>
+            </section>
         </main>
     </body>
 
